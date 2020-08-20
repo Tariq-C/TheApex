@@ -49,5 +49,9 @@
   "theApex:OrbSkill": {
     "NAME": "Get Orb",
     "DESCRIPTION": "Channel 1 Default Orb."
+  },
+  "theApex:SplinterArrow": {
+    "NAME": "Splinter Arrow",
+    "DESCRIPTION": "Deal !D! Damage to an Enemy. NL Exhaust."
   }
 }

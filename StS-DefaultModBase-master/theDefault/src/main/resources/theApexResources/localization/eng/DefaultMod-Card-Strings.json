@@ -52,6 +52,6 @@
   },
   "theApex:SplinterArrow": {
     "NAME": "Splinter Arrow",
-    "DESCRIPTION": "Deal !D! Damage to an Enemy. NL Exhaust."
+    "DESCRIPTION": "Deal !D! Damage to all Enemies. NL Exhaust."
   }
 }

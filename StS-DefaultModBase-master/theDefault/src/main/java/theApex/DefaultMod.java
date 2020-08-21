@@ -399,18 +399,22 @@ public class DefaultMod implements
 
         BaseMod.addCard(new OrbSkill());
         BaseMod.addCard(new DefaultSecondMagicNumberSkill());
-        BaseMod.addCard(new DefaultCommonAttack());
-        BaseMod.addCard(new DefaultAttackWithVariable());
+        //BaseMod.addCard(new DefaultCommonAttack());
+        //BaseMod.addCard(new DefaultAttackWithVariable());
         BaseMod.addCard(new DefaultCommonSkill());
         BaseMod.addCard(new DefaultCommonPower());
         BaseMod.addCard(new DefaultUncommonSkill());
-        BaseMod.addCard(new DefaultUncommonAttack());
+        //BaseMod.addCard(new DefaultUncommonAttack());
         BaseMod.addCard(new DefaultUncommonPower());
-        BaseMod.addCard(new DefaultRareAttack());
+        //BaseMod.addCard(new DefaultRareAttack());
         BaseMod.addCard(new DefaultRareSkill());
         BaseMod.addCard(new DefaultRarePower());
         BaseMod.addCard(new SplinterArrow());
-
+        BaseMod.addCard(new FireArrow());
+        BaseMod.addCard(new HeavyArrow());
+        BaseMod.addCard(new RazorArrow());
+        BaseMod.addCard(new WallArrow());
+        BaseMod.addCard(new SolarRay());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -418,17 +422,23 @@ public class DefaultMod implements
         // before playing your mod.
         UnlockTracker.unlockCard(OrbSkill.ID);
         UnlockTracker.unlockCard(DefaultSecondMagicNumberSkill.ID);
-        UnlockTracker.unlockCard(DefaultCommonAttack.ID);
-        UnlockTracker.unlockCard(DefaultAttackWithVariable.ID);
+        //UnlockTracker.unlockCard(DefaultCommonAttack.ID);
+        //UnlockTracker.unlockCard(DefaultAttackWithVariable.ID);
         UnlockTracker.unlockCard(DefaultCommonSkill.ID);
         UnlockTracker.unlockCard(DefaultCommonPower.ID);
         UnlockTracker.unlockCard(DefaultUncommonSkill.ID);
-        UnlockTracker.unlockCard(DefaultUncommonAttack.ID);
+        //UnlockTracker.unlockCard(DefaultUncommonAttack.ID);
         UnlockTracker.unlockCard(DefaultUncommonPower.ID);
-        UnlockTracker.unlockCard(DefaultRareAttack.ID);
+        //UnlockTracker.unlockCard(DefaultRareAttack.ID);
         UnlockTracker.unlockCard(DefaultRareSkill.ID);
         UnlockTracker.unlockCard(DefaultRarePower.ID);
+        // August 20th
         UnlockTracker.unlockCard(SplinterArrow.ID);
+        UnlockTracker.unlockCard(FireArrow.ID);
+        UnlockTracker.unlockCard(HeavyArrow.ID);
+        UnlockTracker.unlockCard(RazorArrow.ID);
+        UnlockTracker.unlockCard(SolarRay.ID);
+
 
         logger.info("Done adding cards!");
     }

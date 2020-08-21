@@ -1,7 +1,5 @@
 package theApex.cards;
 
-import basemod.BaseMod;
-import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -15,7 +13,7 @@ import theApex.characters.TheApex;
 
 import static theApex.DefaultMod.makeCardPath;
 
-public class SplinterArrow extends AbstractDynamicCard {
+public class FireArrow extends AbstractDynamicCard {
 
     /*
      * "Hey, I wanna make a bunch of cards now." - You, probably.
@@ -37,7 +35,7 @@ public class SplinterArrow extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(SplinterArrow.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String ID = DefaultMod.makeID(FireArrow.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("SplinterArrow.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
@@ -55,13 +53,13 @@ public class SplinterArrow extends AbstractDynamicCard {
     private static final int COST = 2;  // COST = 2
     private static final int UPGRADED_COST = 2; // UPGRADED_COST = 2
 
-    private static final int DAMAGE = 16;    // DAMAGE = 16
-    private static final int UPGRADE_PLUS_DMG = 5;  // UPGRADE_PLUS_DMG = 5
+    private static final int DAMAGE = 25;    // DAMAGE = 16
+    private static final int UPGRADE_PLUS_DMG = 0;  // UPGRADE_PLUS_DMG = 5
 
     // /STAT DECLARATION/
 
 
-    public SplinterArrow() { // - This one and the one right under the imports are the most important ones, don't forget them
+    public FireArrow() { // - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         this.exhaust = true;
@@ -85,7 +83,7 @@ public class SplinterArrow extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DMG);
+            this.retain = true;
             initializeDescription();
         }
     }

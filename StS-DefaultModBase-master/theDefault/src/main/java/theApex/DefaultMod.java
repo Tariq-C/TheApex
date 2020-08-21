@@ -11,8 +11,10 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
+import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
@@ -436,8 +438,19 @@ public class DefaultMod implements
     // shorten all the imports, go look take a look at other mods, such as Hubris.
     
     // ================ /ADD CARDS/ ===================
-    
-    
+
+    // ================ CUSTOM TAGS =================
+    public static class CustomTags
+    {
+        @SpireEnum public static AbstractCard.CardTags ARROW;
+        @SpireEnum public static AbstractCard.CardTags FORM;
+        @SpireEnum public static AbstractCard.CardTags TRAP;
+        @SpireEnum public static AbstractCard.CardTags BLESSING;
+
+    }
+
+    // ================ /CUSTOM TAGS/ =================
+
     // ================ LOAD THE TEXT ===================
     
     @Override
@@ -509,4 +522,6 @@ public class DefaultMod implements
     public static String makeID(String idText) {
         return getModID() + ":" + idText;
     }
+
+
 }

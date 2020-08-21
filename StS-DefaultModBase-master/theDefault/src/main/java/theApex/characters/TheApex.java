@@ -156,9 +156,13 @@ public class TheApex extends CustomPlayer {
 
         logger.info("Begin loading starter Deck Strings");
 
-        for(int i=0; i<5; i++){
-            retVal.add(SplinterArrow.ID);
-        }
+        retVal.add(SplinterArrow.ID);
+        retVal.add(FireArrow.ID);
+        retVal.add(HeavyArrow.ID);
+        retVal.add(RazorArrow.ID);
+        retVal.add(SolarRay.ID);
+        retVal.add(WallArrow.ID);
+
 
         return retVal;
     }

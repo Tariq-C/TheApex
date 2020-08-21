@@ -50,7 +50,7 @@ public class WallArrow extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;  //   since they don't change much.
+    private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheApex.Enums.COLOR_GRAY;
 
@@ -60,7 +60,7 @@ public class WallArrow extends AbstractDynamicCard {
     private static final int BLOCK = 12;
     private static final int UPGRADE_PLUS_BLOCK = 6;
 
-    private static final int DAMAGE = 0;    // DAMAGE = 16
+    private static final int DAMAGE = 4;    // DAMAGE = 16
     private static final int UPGRADE_PLUS_DMG = 0;  // UPGRADE_PLUS_DMG = 5
 
     // /STAT DECLARATION/
@@ -69,6 +69,7 @@ public class WallArrow extends AbstractDynamicCard {
     public WallArrow() { // - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = BLOCK;
+        damage = DAMAGE;
         this.exhaust = true;
         tags.add(DefaultMod.CustomTags.ARROW);
     }

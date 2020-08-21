@@ -40,7 +40,8 @@
   },
   "theApex:FireArrow": {
     "NAME": "FireArrow",
-    "DESCRIPTION": "Deal !D! Damage to an Enemy. NL Exhaust."
+    "DESCRIPTION": "Deal !D! Damage to an Enemy. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! Damage to an Enemy. NL Retain. NL Exhaust"
   },
   "theApex:HeavyArrow": {
     "NAME": "HeavyArrow",

@@ -47,7 +47,7 @@ public class HeavyArrow extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;  //   since they don't change much.
+    private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheApex.Enums.COLOR_GRAY;
 
@@ -65,10 +65,9 @@ public class HeavyArrow extends AbstractDynamicCard {
 
     public HeavyArrow() { // - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = DAMAGE;
+        damage = baseDamage = DAMAGE;
 
         magicNumber = baseMagicNumber = WEAK;
-
         this.exhaust = true;
         tags.add(DefaultMod.CustomTags.ARROW);
     }

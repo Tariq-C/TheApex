@@ -9,6 +9,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -415,6 +416,11 @@ public class DefaultMod implements
         BaseMod.addCard(new RazorArrow());
         BaseMod.addCard(new WallArrow());
         BaseMod.addCard(new SolarRay());
+        BaseMod.addCard(new LaelapsArrow());
+        BaseMod.addCard(new HeartSeekingArrow());
+        BaseMod.addCard(new SwarmArrow());
+        BaseMod.addCard(new VampiricArrow());
+
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -438,6 +444,13 @@ public class DefaultMod implements
         UnlockTracker.unlockCard(HeavyArrow.ID);
         UnlockTracker.unlockCard(RazorArrow.ID);
         UnlockTracker.unlockCard(SolarRay.ID);
+
+        // August 21st
+        UnlockTracker.unlockCard(HeartSeekingArrow.ID);
+        UnlockTracker.unlockCard(LaelapsArrow.ID);
+        UnlockTracker.unlockCard(SwarmArrow.ID);
+        UnlockTracker.unlockCard(VampiricArrow.ID);
+
 
 
         logger.info("Done adding cards!");

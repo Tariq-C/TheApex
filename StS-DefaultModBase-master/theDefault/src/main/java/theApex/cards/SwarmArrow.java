@@ -5,9 +5,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import theApex.DefaultMod;
@@ -15,7 +13,7 @@ import theApex.characters.TheApex;
 
 import static theApex.DefaultMod.makeCardPath;
 
-public class FireArrow extends AbstractDynamicCard {
+public class SwarmArrow extends AbstractDynamicCard {
 
     /*
      * "Hey, I wanna make a bunch of cards now." - You, probably.
@@ -37,7 +35,7 @@ public class FireArrow extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(FireArrow.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String ID = DefaultMod.makeID(SwarmArrow.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("SplinterArrow.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
@@ -47,26 +45,27 @@ public class FireArrow extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheApex.Enums.COLOR_GRAY;
 
-    private static final int COST = 2;  // COST = 2
-    private static final int UPGRADED_COST = 2; // UPGRADED_COST = 2
+    private static final int COST = 1;  // COST = 2
+    private static final int UPGRADED_COST = 1; // UPGRADED_COST = 2
 
-    private static final int DAMAGE = 25;    // DAMAGE = 16
+    private static final int DAMAGE = 5;    // DAMAGE = 16
     private static final int UPGRADE_PLUS_DMG = 0;  // UPGRADE_PLUS_DMG = 5
 
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    private static final int TIMES = 3;
+    private static final int UPGRADE_PLUS_TIMES = 1;
 
     // /STAT DECLARATION/
 
 
-    public FireArrow() { // - This one and the one right under the imports are the most important ones, don't forget them
+    public SwarmArrow() { // - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
+        magicNumber = TIMES;
         this.exhaust = true;
         tags.add(DefaultMod.CustomTags.ARROW);
     }
@@ -75,9 +74,9 @@ public class FireArrow extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (final AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+        for (int i = 0; i < magicNumber; i++) {
             AbstractDungeon.actionManager.addToBottom(
-                    new DamageAction(mo, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+                    new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
 
         }
     }
@@ -88,8 +87,8 @@ public class FireArrow extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.retain = true;
-            rawDescription = UPGRADE_DESCRIPTION;
+            upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeMagicNumber(UPGRADE_PLUS_TIMES);
             initializeDescription();
         }
     }

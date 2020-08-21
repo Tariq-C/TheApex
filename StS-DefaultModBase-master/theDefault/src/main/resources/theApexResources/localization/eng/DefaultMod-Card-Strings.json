@@ -58,6 +58,23 @@
   "theApex:WallArrow": {
     "NAME": "Wall Arrow",
     "DESCRIPTION": "Gain !B! Block. NL Deal !D! to an enemy. NL Exhaust"
+  },
+  "theApex:HeartSeekingArrow": {
+    "NAME": "Heart Seeking Arrow",
+    "DESCRIPTION": "Deal !D! to an enemy X times."
+  },
+  "theApex:LaelapsArrow": {
+    "NAME": "Laelaps Arrow",
+    "Description": "Deal !D! Damage to an enemy. NL If the enemy is killed by this card, permanently increase this cards Damage by !M!."
+  },
+  "theApex:VampiricArrow": {
+    "NAME": "Vampiric Arrow",
+    "DESCRIPTION": "Deal !D! Damage to an enemy. NL Heal !D! HP."
+  },
+  "theApex:SwarmArrow": {
+    "NAME" : "Swarm Arrow",
+    "Description": "Deal !D! Damage to an enemy !M! Times"
   }
+
 
 }

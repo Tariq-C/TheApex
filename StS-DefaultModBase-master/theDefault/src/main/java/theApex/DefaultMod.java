@@ -40,6 +40,7 @@ import theApex.variables.DefaultSecondMagicNumber;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.BitSet;
 import java.util.Properties;
 
 //TODO: DON'T MASS RENAME/REFACTOR
@@ -425,6 +426,9 @@ public class DefaultMod implements
         BaseMod.addCard(new BlindingArrow());
         BaseMod.addCard(new FireworkArrow());
         BaseMod.addCard(new TaintedArrow());
+        BaseMod.addCard(new Strike());
+        BaseMod.addCard(new Pounce());
+        BaseMod.addCard(new DualSlash());
 
 
         logger.info("Making sure the cards are unlocked.");
@@ -461,6 +465,9 @@ public class DefaultMod implements
         UnlockTracker.unlockCard(BlindingArrow.ID);
         UnlockTracker.unlockCard(FireworkArrow.ID);
         UnlockTracker.unlockCard(TaintedArrow.ID);
+        UnlockTracker.unlockCard(Strike.ID);
+        UnlockTracker.unlockCard(Pounce.ID);
+        UnlockTracker.unlockCard(DualSlash.ID);
 
 
 

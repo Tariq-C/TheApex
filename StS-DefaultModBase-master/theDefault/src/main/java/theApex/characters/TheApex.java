@@ -169,11 +169,20 @@ public class TheApex extends CustomPlayer {
         retVal.add(SwarmArrow.ID);
         */
 
+
         retVal.add(AcceleratingArrow.ID);
         retVal.add(BlindingArrow.ID);
         retVal.add(FireworkArrow.ID);
         retVal.add(TaintedArrow.ID);
+        retVal.add(Pounce.ID);
+        retVal.add(DualSlash.ID);
 
+        /*
+        for(int i = 0; i < 5; i++) {
+            retVal.add(Strike.ID);
+            //retVal.add(Defend.ID);
+        }
+        */
         return retVal;
     }
 

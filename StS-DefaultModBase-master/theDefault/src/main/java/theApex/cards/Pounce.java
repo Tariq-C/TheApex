@@ -3,19 +3,20 @@ package theApex.cards;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
-import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.powers.LoseStrengthPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import theApex.DefaultMod;
 import theApex.characters.TheApex;
 
 import static theApex.DefaultMod.makeCardPath;
 
-public class BlindingArrow extends AbstractDynamicCard {
+public class Pounce extends AbstractDynamicCard {
 
     /*
      * "Hey, I wanna make a bunch of cards now." - You, probably.
@@ -37,7 +38,7 @@ public class BlindingArrow extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(BlindingArrow.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String ID = DefaultMod.makeID(Pounce.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("SplinterArrow.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
@@ -47,42 +48,40 @@ public class BlindingArrow extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;  //   since they don't change much.
-    private static final CardType TYPE = CardType.SKILL;       //
+    private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
+    private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
+    private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheApex.Enums.COLOR_GRAY;
 
-    private static final int COST = 1;  // COST = 2
+    private static final int COST = 0;  // COST = 2
     private static final int UPGRADED_COST = 0; // UPGRADED_COST = 2
 
-    private static final int BLOCK = 8;
+    private static final int DAMAGE = 5;    // DAMAGE = 16
+    private static final int UPGRADE_PLUS_DMG = 0;  // UPGRADE_PLUS_DMG = 5
 
-    private static final int WEAK = 3;
+    private static final int TEMP_STR = 4;
+    private static final int TEMP_STR_INC = 1;
 
 
     // /STAT DECLARATION/
 
 
-    public BlindingArrow() { // - This one and the one right under the imports are the most important ones, don't forget them
+    public Pounce() { // - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        block = baseBlock = BLOCK;
-        magicNumber = baseMagicNumber = WEAK;
-        this.exhaust = true;
-        tags.add(DefaultMod.CustomTags.ARROW);
+        baseDamage = DAMAGE;
+        magicNumber = baseMagicNumber = TEMP_STR;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
         AbstractDungeon.actionManager.addToBottom(
-                new GainBlockAction(p, p, block));
-
-        for (final AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(mo, p, new WeakPower(mo, this.magicNumber, false ), this.magicNumber));
-        }
+                new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(p, p, new StrengthPower(p, this.magicNumber)));
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(p, p, new LoseStrengthPower(p, this.magicNumber)));
     }
 
 
@@ -91,7 +90,7 @@ public class BlindingArrow extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            updateCost(UPGRADED_COST);
+            upgradeMagicNumber(TEMP_STR_INC);
             initializeDescription();
         }
     }

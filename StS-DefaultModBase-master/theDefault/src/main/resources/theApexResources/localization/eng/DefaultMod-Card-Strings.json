@@ -69,19 +69,19 @@
   },
   "theApex:VampiricArrow": {
     "NAME": "Vampiric Arrow",
-    "DESCRIPTION": "Deal !D! Damage to an enemy and Heal for an equivalent amount. HP. NL Exhaust"
+    "DESCRIPTION": "Deal !D! Damage to an enemy and Heal for an equivalent amount. HP. NL Exhaust."
   },
   "theApex:SwarmArrow": {
     "NAME" : "Swarm Arrow",
-    "DESCRIPTION": "Deal !D! Damage to an enemy !M! Times. NL Exhaust"
+    "DESCRIPTION": "Deal !D! Damage to an enemy !M! Times. NL Exhaust."
   },
   "theApex:TaintedArrow": {
     "NAME": "Tainted Arrow",
-    "DESCRIPTION": "Deal !D! Damage to an enemy. NL Enemy loses !M! Strength for one turn"
+    "DESCRIPTION": "Deal !D! Damage to an enemy. NL Enemy loses !M! Strength for one turn. NL Exhaust."
   },
   "theApex:FireworkArrow": {
     "NAME": "Firework Arrow",
-    "DESCRIPTION": "Deal !D! Damage to all enemies. NL Apply !M! Weak."
+    "DESCRIPTION": "Deal !D! Damage to all enemies. NL Apply !M! Weak. NL Exhaust."
   },
   "theApex:AcceleratingArrow": {
     "NAME": "Accelerating Arrow",
@@ -90,7 +90,19 @@
   },
   "theApex:BlindingArrow": {
     "NAME": "Blinding Arrow",
-    "DESCRIPTION": "Gain !B! Block. NL Inflict !M! Weak to all enemies."
+    "DESCRIPTION": "Gain !B! Block. NL Inflict !M! Weak to all enemies. NL Exhaust."
+  },
+  "theApex:Strike": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! Damage to an enemy."
+  },
+  "theApex:Pounce": {
+    "NAME": "Pounce",
+    "DESCRIPTION": "Deal !D! Damage to an enemy. NL Gain !M! Temporary Strength."
+  },
+  "theApex:DualSlash": {
+    "NAME": "Dual Slash",
+    "DESCRIPTION": "Deal !D! to an enemy !M! times."
   }
 
 

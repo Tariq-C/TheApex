@@ -3,6 +3,7 @@ package theApex;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
+import basemod.devcommands.unlock.Unlock;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -420,6 +421,10 @@ public class DefaultMod implements
         BaseMod.addCard(new HeartSeekingArrow());
         BaseMod.addCard(new SwarmArrow());
         BaseMod.addCard(new VampiricArrow());
+        BaseMod.addCard(new AcceleratingArrow());
+        BaseMod.addCard(new BlindingArrow());
+        BaseMod.addCard(new FireworkArrow());
+        BaseMod.addCard(new TaintedArrow());
 
 
         logger.info("Making sure the cards are unlocked.");
@@ -450,6 +455,13 @@ public class DefaultMod implements
         UnlockTracker.unlockCard(LaelapsArrow.ID);
         UnlockTracker.unlockCard(SwarmArrow.ID);
         UnlockTracker.unlockCard(VampiricArrow.ID);
+
+        // August 24th
+        UnlockTracker.unlockCard(AcceleratingArrow.ID);
+        UnlockTracker.unlockCard(BlindingArrow.ID);
+        UnlockTracker.unlockCard(FireworkArrow.ID);
+        UnlockTracker.unlockCard(TaintedArrow.ID);
+
 
 
 

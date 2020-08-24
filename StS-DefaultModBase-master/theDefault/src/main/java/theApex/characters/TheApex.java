@@ -163,11 +163,16 @@ public class TheApex extends CustomPlayer {
         retVal.add(SolarRay.ID);
         retVal.add(WallArrow.ID);*/
 
-        retVal.add(HeartSeekingArrow.ID);
+        /*retVal.add(HeartSeekingArrow.ID);
         retVal.add(LaelapsArrow.ID);
         retVal.add(VampiricArrow.ID);
         retVal.add(SwarmArrow.ID);
+        */
 
+        retVal.add(AcceleratingArrow.ID);
+        retVal.add(BlindingArrow.ID);
+        retVal.add(FireworkArrow.ID);
+        retVal.add(TaintedArrow.ID);
 
         return retVal;
     }

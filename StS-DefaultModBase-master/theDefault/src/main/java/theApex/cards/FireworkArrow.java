@@ -1,22 +1,20 @@
 package theApex.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.unique.RitualDaggerAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import theApex.DefaultMod;
 import theApex.characters.TheApex;
 
-import java.util.Iterator;
-
 import static theApex.DefaultMod.makeCardPath;
 
-public class LaelapsArrow extends AbstractDynamicCard {
+public class FireworkArrow extends AbstractDynamicCard {
 
     /*
      * "Hey, I wanna make a bunch of cards now." - You, probably.
@@ -38,7 +36,7 @@ public class LaelapsArrow extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(LaelapsArrow.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String ID = DefaultMod.makeID(FireworkArrow.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("SplinterArrow.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
@@ -48,32 +46,28 @@ public class LaelapsArrow extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.RARE; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
+    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheApex.Enums.COLOR_GRAY;
 
-    private static final int COST = 0;  // COST = 2
+    private static final int COST = 1;  // COST = 2
     private static final int UPGRADED_COST = 0; // UPGRADED_COST = 2
 
-    private static final int DAMAGE = 12;    // DAMAGE = 16
-    private static final int UPGRADE_PLUS_DMG = 5;  // UPGRADE_PLUS_DMG = 5
+    private static final int DAMAGE = 10;    // DAMAGE = 16
+    private static final int UPGRADE_PLUS_DMG = 0;  // UPGRADE_PLUS_DMG = 5
 
-    private static final int PERM_DAMAGE_INC = 1;
-    private static final int UPGRADE_PLUS_PERM_DMG_INC = 1;
+    private static final int WEAK = 3;
+    private static final int UPGRADE_PLUS_WEAK = 2;
 
     // /STAT DECLARATION/
 
 
-    public LaelapsArrow() { // - This one and the one right under the imports are the most important ones, don't forget them
+    public FireworkArrow() { // - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-
-        this.misc = DAMAGE;
-        this.baseMagicNumber = PERM_DAMAGE_INC;
-        this.magicNumber = this.baseMagicNumber;
-        this.baseDamage = this.misc;
+        baseDamage = DAMAGE;
+        magicNumber = baseMagicNumber = WEAK;
         this.exhaust = true;
-
         tags.add(DefaultMod.CustomTags.ARROW);
     }
 
@@ -81,10 +75,13 @@ public class LaelapsArrow extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        //AbstractDungeon.actionManager.addToBottom(
-          //      new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        for (final AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            AbstractDungeon.actionManager.addToBottom(
+                    new DamageAction(mo, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+            AbstractDungeon.actionManager.addToBottom(
+                    new ApplyPowerAction(mo, p, new WeakPower(mo, this.magicNumber, false ), this.magicNumber));
 
-        this.addToBot(new RitualDaggerAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), this.magicNumber, this.uuid));
+        }
     }
 
 
@@ -93,8 +90,7 @@ public class LaelapsArrow extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DMG);
-            upgradeMagicNumber(UPGRADE_PLUS_PERM_DMG_INC);
+            upgradeMagicNumber(UPGRADE_PLUS_WEAK);
             initializeDescription();
         }
     }

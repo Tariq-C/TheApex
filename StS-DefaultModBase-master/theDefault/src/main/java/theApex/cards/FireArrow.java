@@ -55,7 +55,7 @@ public class FireArrow extends AbstractDynamicCard {
     private static final int COST = 2;  // COST = 2
     private static final int UPGRADED_COST = 2; // UPGRADED_COST = 2
 
-    private static final int DAMAGE = 25;    // DAMAGE = 16
+    private static final int DAMAGE = 20;    // DAMAGE = 16
     private static final int UPGRADE_PLUS_DMG = 0;  // UPGRADE_PLUS_DMG = 5
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -75,11 +75,10 @@ public class FireArrow extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (final AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new DamageAction(mo, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        AbstractDungeon.actionManager.addToBottom(
+                new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
 
-        }
+
     }
 
 

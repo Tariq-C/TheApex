@@ -54,7 +54,7 @@ public class HeavyArrow extends AbstractDynamicCard {
     private static final int COST = 2;  // COST = 2
     private static final int UPGRADED_COST = 2; // UPGRADED_COST = 2
 
-    private static final int DAMAGE = 18;    // DAMAGE = 16
+    private static final int DAMAGE = 14;    // DAMAGE = 16
     private static final int UPGRADE_PLUS_DMG = 8;  // UPGRADE_PLUS_DMG = 5
 
     private static final int WEAK = 1;

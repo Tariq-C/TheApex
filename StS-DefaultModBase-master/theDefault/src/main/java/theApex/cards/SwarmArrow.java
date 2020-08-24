@@ -64,8 +64,8 @@ public class SwarmArrow extends AbstractDynamicCard {
 
     public SwarmArrow() { // - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = DAMAGE;
-        magicNumber = TIMES;
+        damage = baseDamage = DAMAGE;
+        magicNumber = baseMagicNumber = TIMES;
         this.exhaust = true;
         tags.add(DefaultMod.CustomTags.ARROW);
     }
@@ -87,7 +87,6 @@ public class SwarmArrow extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DMG);
             upgradeMagicNumber(UPGRADE_PLUS_TIMES);
             initializeDescription();
         }

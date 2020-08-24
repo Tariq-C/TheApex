@@ -69,7 +69,7 @@ public class WallArrow extends AbstractDynamicCard {
     public WallArrow() { // - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = BLOCK;
-        damage = DAMAGE;
+        damage = baseDamage = DAMAGE;
         this.exhaust = true;
         tags.add(DefaultMod.CustomTags.ARROW);
     }

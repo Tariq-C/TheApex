@@ -57,24 +57,43 @@
   },
   "theApex:WallArrow": {
     "NAME": "Wall Arrow",
-    "DESCRIPTION": "Gain !B! Block. NL Deal !D! to an enemy. NL Exhaust"
+    "DESCRIPTION": "Deal !D! to an enemy. NL Gain !B! Block. NL Exhaust"
   },
   "theApex:HeartSeekingArrow": {
     "NAME": "Heart Seeking Arrow",
-    "DESCRIPTION": "Deal !D! to an enemy X times."
+    "DESCRIPTION": "Deal !D! to an enemy X times. NL Exhaust"
   },
   "theApex:LaelapsArrow": {
     "NAME": "Laelaps Arrow",
-    "Description": "Deal !D! Damage to an enemy. NL If the enemy is killed by this card, permanently increase this cards Damage by !M!."
+    "DESCRIPTION": "Deal !D! Damage to an enemy. NL If the enemy is killed by this card, permanently increase this cards Damage by !M!. NL Exhaust"
   },
   "theApex:VampiricArrow": {
     "NAME": "Vampiric Arrow",
-    "DESCRIPTION": "Deal !D! Damage to an enemy. NL Heal !D! HP."
+    "DESCRIPTION": "Deal !D! Damage to an enemy and Heal for an equivalent amount. HP. NL Exhaust"
   },
   "theApex:SwarmArrow": {
     "NAME" : "Swarm Arrow",
-    "Description": "Deal !D! Damage to an enemy !M! Times"
+    "DESCRIPTION": "Deal !D! Damage to an enemy !M! Times. NL Exhaust"
+  },
+  "theApex:TaintedArrow": {
+    "NAME": "Tainted Arrow",
+    "DESCRIPTION": "Deal !D! Damage to an enemy. NL Enemy loses !M! Strength for one turn"
+  },
+  "theApex:FireworkArrow": {
+    "NAME": "Firework Arrow",
+    "DESCRIPTION": "Deal !D! Damage to all enemies. NL Apply !M! Weak."
+  },
+  "theApex:AcceleratingArrow": {
+    "NAME": "Accelerating Arrow",
+    "DESCRIPTION": "Deal !D! Damage to an enemy. NL Damage Increases this cards Damage by !M! this combat. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Deal !D! Damage to an enemy. NL Damage Increases this cards Damage by !M! this combat."
+  },
+  "theApex:BlindingArrow": {
+    "NAME": "Blinding Arrow",
+    "DESCRIPTION": "Gain !B! Block. NL Inflict !M! Weak to all enemies."
   }
+
+
 
 
 }

@@ -75,10 +75,12 @@ public class HeartSeekingArrow extends AbstractDynamicCard {
         if (energyOnUse < EnergyPanel.totalCount) {
             energyOnUse = EnergyPanel.totalCount;
         }
+        p.energy.use(EnergyPanel.totalCount);
         for (int i = 0; i < energyOnUse; i++) {
             AbstractDungeon.actionManager.addToBottom(
                     new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
+
     }
 
 

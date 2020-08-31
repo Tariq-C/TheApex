@@ -7,16 +7,12 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.actions.common.ExhaustAction;
-import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import theApex.DefaultMod;
+import theApex.TheApexMod;
 import theApex.characters.TheApex;
 
-import java.util.Iterator;
-
-import static theApex.DefaultMod.makeCardPath;
+import static theApex.TheApexMod.makeCardPath;
 
 public class TaintedArrow extends AbstractDynamicCard {
 
@@ -40,7 +36,7 @@ public class TaintedArrow extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(TaintedArrow.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String ID = TheApexMod.makeID(TaintedArrow.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("SplinterArrow.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
@@ -71,7 +67,7 @@ public class TaintedArrow extends AbstractDynamicCard {
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = DRAIN;
         this.exhaust = true;
-        tags.add(DefaultMod.CustomTags.ARROW);
+        tags.add(TheApexMod.CustomTags.ARROW);
     }
 
 

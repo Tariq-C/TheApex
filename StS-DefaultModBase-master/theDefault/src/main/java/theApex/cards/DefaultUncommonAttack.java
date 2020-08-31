@@ -6,10 +6,10 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theApex.DefaultMod;
+import theApex.TheApexMod;
 import theApex.characters.TheApex;
 
-import static theApex.DefaultMod.makeCardPath;
+import static theApex.TheApexMod.makeCardPath;
 
 public class DefaultUncommonAttack extends AbstractDynamicCard {
 
@@ -21,7 +21,7 @@ public class DefaultUncommonAttack extends AbstractDynamicCard {
 
     // TEXT DECLARATION 
 
-    public static final String ID = DefaultMod.makeID(DefaultUncommonAttack.class.getSimpleName());
+    public static final String ID = TheApexMod.makeID(DefaultUncommonAttack.class.getSimpleName());
     public static final String IMG = makeCardPath("Attack.png");
 
     // /TEXT DECLARATION/

@@ -5,10 +5,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
-import theApex.DefaultMod;
+import theApex.TheApexMod;
 import theApex.characters.TheApex;
 
-import static theApex.DefaultMod.makeCardPath;
+import static theApex.TheApexMod.makeCardPath;
 
 public class DefaultUncommonSkill extends AbstractDynamicCard {
 
@@ -20,7 +20,7 @@ public class DefaultUncommonSkill extends AbstractDynamicCard {
 
     // TEXT DECLARATION 
 
-    public static final String ID = DefaultMod.makeID(DefaultUncommonSkill.class.getSimpleName());
+    public static final String ID = TheApexMod.makeID(DefaultUncommonSkill.class.getSimpleName());
     public static final String IMG = makeCardPath("Skill.png");
 
     // /TEXT DECLARATION/

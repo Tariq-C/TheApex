@@ -1,17 +1,23 @@
 package theApex.cards;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import theApex.TheApexMod;
 import theApex.characters.TheApex;
 
 import static theApex.TheApexMod.makeCardPath;
 
-public class BlindingArrow extends AbstractDynamicCard {
+public class ForThePride extends AbstractDynamicCard {
 
     /*
      * "Hey, I wanna make a bunch of cards now." - You, probably.
@@ -33,8 +39,8 @@ public class BlindingArrow extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = TheApexMod.makeID(BlindingArrow.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
-    public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("SplinterArrow.png");
+    public static final String ID = TheApexMod.makeID(ForThePride.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("SplinterArrow.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
 
@@ -43,28 +49,26 @@ public class BlindingArrow extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;  //   since they don't change much.
+    private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
+    private static final CardTarget TARGET = CardTarget.SELF;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheApex.Enums.COLOR_GRAY;
 
     private static final int COST = 1;  // COST = 2
-    private static final int UPGRADED_COST = 0; // UPGRADED_COST = 2
+    private static final int UPGRADED_COST = 1; // UPGRADED_COST = 2
 
-    private static final int BLOCK = 8;
+    private static final int DRAW = 2;
 
-    private static final int WEAK = 3;
-
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
     // /STAT DECLARATION/
 
 
-    public BlindingArrow() { // - This one and the one right under the imports are the most important ones, don't forget them
+    public ForThePride() { // - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        block = baseBlock = BLOCK;
-        magicNumber = baseMagicNumber = WEAK;
-        this.exhaust = true;
-        tags.add(TheApexMod.CustomTags.ARROW);
+        this.baseMagicNumber = magicNumber = DRAW;
+        this.cardsToPreview = new BeastFang();
     }
 
 
@@ -72,12 +76,11 @@ public class BlindingArrow extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        AbstractDungeon.actionManager.addToBottom(
-                new GainBlockAction(p, p, block));
-
-        for (final AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(mo, p, new WeakPower(mo, this.magicNumber, false ), this.magicNumber));
+        if (!upgraded) {
+            this.addToBot(new MakeTempCardInHandAction(this.cardsToPreview, this.magicNumber));
+        }else{
+            this.cardsToPreview.upgrade();
+            this.addToBot(new MakeTempCardInHandAction(this.cardsToPreview, this.magicNumber));
         }
     }
 
@@ -87,7 +90,7 @@ public class BlindingArrow extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            updateCost(UPGRADED_COST);
+            rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

@@ -4,10 +4,10 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theApex.DefaultMod;
+import theApex.TheApexMod;
 import theApex.characters.TheApex;
 
-import static theApex.DefaultMod.makeCardPath;
+import static theApex.TheApexMod.makeCardPath;
 
 public class DefaultCommonSkill extends AbstractDynamicCard {
 
@@ -20,7 +20,7 @@ public class DefaultCommonSkill extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(DefaultCommonSkill.class.getSimpleName());
+    public static final String ID = TheApexMod.makeID(DefaultCommonSkill.class.getSimpleName());
     public static final String IMG = makeCardPath("Skill.png");
 
     // /TEXT DECLARATION/

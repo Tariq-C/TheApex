@@ -21,7 +21,7 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import theApex.DefaultMod;
+import theApex.TheApexMod;
 import theApex.cards.*;
 import theApex.relics.DefaultClickableRelic;
 import theApex.relics.PlaceholderRelic;
@@ -29,7 +29,7 @@ import theApex.relics.PlaceholderRelic2;
 
 import java.util.ArrayList;
 
-import static theApex.DefaultMod.*;
+import static theApex.TheApexMod.*;
 import static theApex.characters.TheApex.Enums.COLOR_GRAY;
 
 //Wiki-page https://github.com/daviscook477/BaseMod/wiki/Custom-Characters
@@ -37,7 +37,7 @@ import static theApex.characters.TheApex.Enums.COLOR_GRAY;
 //All text (starting description and loadout, anything labeled TEXT[]) can be found in DefaultMod-character-Strings.json in the resources
 
 public class TheApex extends CustomPlayer {
-    public static final Logger logger = LogManager.getLogger(DefaultMod.class.getName());
+    public static final Logger logger = LogManager.getLogger(TheApexMod.class.getName());
 
     // =============== CHARACTER ENUMERATORS =================
     // These are enums for your Characters color (both general color and for the card library) as well as
@@ -65,7 +65,7 @@ public class TheApex extends CustomPlayer {
     public static final int MAX_HP = 75;
     public static final int STARTING_GOLD = 99;
     public static final int CARD_DRAW = 9;
-    public static final int ORB_SLOTS = 3;
+    public static final int ORB_SLOTS = 0;
 
     // =============== /BASE STATS/ =================
 
@@ -170,17 +170,24 @@ public class TheApex extends CustomPlayer {
         */
 
 
-        retVal.add(AcceleratingArrow.ID);
+        /*retVal.add(AcceleratingArrow.ID);
         retVal.add(BlindingArrow.ID);
         retVal.add(FireworkArrow.ID);
         retVal.add(TaintedArrow.ID);
         retVal.add(Pounce.ID);
         retVal.add(DualSlash.ID);
+        */
+
+        retVal.add(QuickStab.ID);
+        retVal.add(BeastFang.ID);
+        retVal.add(HeavySlash.ID);
+        retVal.add(PreciseStab.ID);
+        retVal.add(ForThePride.ID);
 
         /*
         for(int i = 0; i < 5; i++) {
             retVal.add(Strike.ID);
-            //retVal.add(Defend.ID);
+            retVal.add(Defend.ID);
         }
         */
         return retVal;
@@ -231,7 +238,7 @@ public class TheApex extends CustomPlayer {
     // Should return a color object to be used to color the trail of moving cards
     @Override
     public Color getCardTrailColor() {
-        return theApex.DefaultMod.DEFAULT_GRAY;
+        return TheApexMod.DEFAULT_GRAY;
     }
 
     // Should return a BitmapFont object that you can use to customize how your
@@ -268,14 +275,14 @@ public class TheApex extends CustomPlayer {
     // Should return a Color object to be used to color the miniature card images in run history.
     @Override
     public Color getCardRenderColor() {
-        return theApex.DefaultMod.DEFAULT_GRAY;
+        return TheApexMod.DEFAULT_GRAY;
     }
 
     // Should return a Color object to be used as screen tint effect when your
     // character attacks the heart.
     @Override
     public Color getSlashAttackColor() {
-        return theApex.DefaultMod.DEFAULT_GRAY;
+        return TheApexMod.DEFAULT_GRAY;
     }
 
     // Should return an AttackEffect array of any size greater than 0. These effects

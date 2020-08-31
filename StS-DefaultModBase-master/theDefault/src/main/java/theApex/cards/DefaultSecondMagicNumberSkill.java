@@ -6,10 +6,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
-import theApex.DefaultMod;
+import theApex.TheApexMod;
 import theApex.characters.TheApex;
 
-import static theApex.DefaultMod.makeCardPath;
+import static theApex.TheApexMod.makeCardPath;
 
 public class DefaultSecondMagicNumberSkill extends AbstractDynamicCard {
 
@@ -29,7 +29,7 @@ public class DefaultSecondMagicNumberSkill extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(DefaultSecondMagicNumberSkill.class.getSimpleName());
+    public static final String ID = TheApexMod.makeID(DefaultSecondMagicNumberSkill.class.getSimpleName());
     public static final String IMG = makeCardPath("Skill.png");
 
     // /TEXT DECLARATION/

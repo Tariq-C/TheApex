@@ -57,11 +57,11 @@
   },
   "theApex:WallArrow": {
     "NAME": "Wall Arrow",
-    "DESCRIPTION": "Deal !D! to an enemy. NL Gain !B! Block. NL Exhaust"
+    "DESCRIPTION": "Deal !D! Damage to an enemy. NL Gain !B! Block. NL Exhaust"
   },
   "theApex:HeartSeekingArrow": {
     "NAME": "Heart Seeking Arrow",
-    "DESCRIPTION": "Deal !D! to an enemy X times. NL Exhaust"
+    "DESCRIPTION": "Deal !D! Damage to an enemy X times. NL Exhaust"
   },
   "theApex:LaelapsArrow": {
     "NAME": "Laelaps Arrow",
@@ -92,7 +92,7 @@
     "NAME": "Blinding Arrow",
     "DESCRIPTION": "Gain !B! Block. NL Inflict !M! Weak to all enemies. NL Exhaust."
   },
-  "theApex:Strike": {
+  "theApex:Strike_A": {
     "NAME": "Strike",
     "DESCRIPTION": "Deal !D! Damage to an enemy."
   },
@@ -102,10 +102,30 @@
   },
   "theApex:DualSlash": {
     "NAME": "Dual Slash",
-    "DESCRIPTION": "Deal !D! to an enemy !M! times."
+    "DESCRIPTION": "Deal !D! Damage to an enemy !M! times."
+  },
+  "theApex:QuickStab":  {
+    "NAME": "Quick Stab",
+    "DESCRIPTION": "Deal !D! Damage to an enemy. NL Gain !B! Block. NL Draw !M! Card."
+  },
+  "theApex:PreciseStab":  {
+    "NAME": "Precise Stab",
+    "DESCRIPTION": "Deal !D! Damage to an enemy. NL Inflict !M! Bleed."
+  },
+  "theApex:HeavySlash": {
+    "NAME":"Heavy Slash",
+    "DESCRIPTION": "Deal !D! Damage to an enemy. NL Ethereal.",
+    "UPGRADE_DESCRIPTION": "Deal !D! Damage to an enemy."
+  },
+  "theApex:BeastFang": {
+    "NAME": "Beast Fang",
+    "DESCRIPTION": "Deal !D! Damage to an enemy. NL Retain. NL Exhaust."
+  },
+  "theApex:ForThePride": {
+    "NAME": "For The Pride",
+    "DESCRIPTION": "Add !M! Beast Fangs to your Hand.",
+    "UPGRADE_DESCRIPTION": "Add !M! Upgraded Beast Fangs to your Hand."
   }
-
-
 
 
 }

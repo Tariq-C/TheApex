@@ -1,18 +1,16 @@
 package theApex.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
-import theApex.DefaultMod;
+import theApex.TheApexMod;
 import theApex.characters.TheApex;
 
-import static theApex.DefaultMod.makeCardPath;
+import static theApex.TheApexMod.makeCardPath;
 
 public class HeartSeekingArrow extends AbstractDynamicCard {
 
@@ -36,7 +34,7 @@ public class HeartSeekingArrow extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(HeartSeekingArrow.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String ID = TheApexMod.makeID(HeartSeekingArrow.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("SplinterArrow.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
@@ -65,7 +63,7 @@ public class HeartSeekingArrow extends AbstractDynamicCard {
         baseDamage = DAMAGE;
         this.exhaust = true;
         this.isMultiDamage = true;
-        tags.add(DefaultMod.CustomTags.ARROW);
+        tags.add(TheApexMod.CustomTags.ARROW);
     }
 
 

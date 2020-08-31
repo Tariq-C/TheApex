@@ -1,17 +1,15 @@
 package theApex.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.actions.common.ExhaustAction;
-import theApex.DefaultMod;
+import theApex.TheApexMod;
 import theApex.characters.TheApex;
 
-import static theApex.DefaultMod.makeCardPath;
+import static theApex.TheApexMod.makeCardPath;
 
 public class SolarRay extends AbstractDynamicCard {
 
@@ -35,7 +33,7 @@ public class SolarRay extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(SolarRay.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String ID = TheApexMod.makeID(SolarRay.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("SplinterArrow.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
@@ -62,7 +60,7 @@ public class SolarRay extends AbstractDynamicCard {
     public SolarRay() { // - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        tags.add(DefaultMod.CustomTags.ARROW);
+        tags.add(TheApexMod.CustomTags.ARROW);
     }
 
 

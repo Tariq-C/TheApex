@@ -3,14 +3,12 @@ package theApex;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
-import basemod.devcommands.unlock.Unlock;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -18,7 +16,6 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
@@ -40,7 +37,6 @@ import theApex.variables.DefaultSecondMagicNumber;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.util.BitSet;
 import java.util.Properties;
 
 //TODO: DON'T MASS RENAME/REFACTOR
@@ -72,7 +68,7 @@ import java.util.Properties;
  */
 
 @SpireInitializer
-public class DefaultMod implements
+public class TheApexMod implements
         EditCardsSubscriber,
         EditRelicsSubscriber,
         EditStringsSubscriber,
@@ -81,7 +77,7 @@ public class DefaultMod implements
         PostInitializeSubscriber {
     // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
     // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
-    public static final Logger logger = LogManager.getLogger(DefaultMod.class.getName());
+    public static final Logger logger = LogManager.getLogger(TheApexMod.class.getName());
     private static String modID;
 
     // Mod-settings settings. This is if you want an on/off savable button
@@ -172,7 +168,7 @@ public class DefaultMod implements
     
     // =============== SUBSCRIBE, CREATE THE COLOR_GRAY, INITIALIZE =================
     
-    public DefaultMod() {
+    public TheApexMod() {
         logger.info("Subscribe to BaseMod hooks");
         
         BaseMod.subscribe(this);
@@ -237,7 +233,7 @@ public class DefaultMod implements
     public static void setModID(String ID) { // DON'T EDIT
         Gson coolG = new Gson(); // EY DON'T EDIT THIS
         //   String IDjson = Gdx.files.internal("IDCheckStringsDONT-EDIT-AT-ALL.json").readString(String.valueOf(StandardCharsets.UTF_8)); // i hate u Gdx.files
-        InputStream in = DefaultMod.class.getResourceAsStream("/IDCheckStringsDONT-EDIT-AT-ALL.json"); // DON'T EDIT THIS ETHER
+        InputStream in = TheApexMod.class.getResourceAsStream("/IDCheckStringsDONT-EDIT-AT-ALL.json"); // DON'T EDIT THIS ETHER
         IDCheckDontTouchPls EXCEPTION_STRINGS = coolG.fromJson(new InputStreamReader(in, StandardCharsets.UTF_8), IDCheckDontTouchPls.class); // OR THIS, DON'T EDIT IT
         logger.info("You are attempting to set your mod ID as: " + ID); // NO WHY
         if (ID.equals(EXCEPTION_STRINGS.DEFAULTID)) { // DO *NOT* CHANGE THIS ESPECIALLY, TO EDIT YOUR MOD ID, SCROLL UP JUST A LITTLE, IT'S JUST ABOVE
@@ -257,9 +253,9 @@ public class DefaultMod implements
     private static void pathCheck() { // ALSO NO
         Gson coolG = new Gson(); // NOPE DON'T EDIT THIS
         //   String IDjson = Gdx.files.internal("IDCheckStringsDONT-EDIT-AT-ALL.json").readString(String.valueOf(StandardCharsets.UTF_8)); // i still hate u btw Gdx.files
-        InputStream in = DefaultMod.class.getResourceAsStream("/IDCheckStringsDONT-EDIT-AT-ALL.json"); // DON'T EDIT THISSSSS
+        InputStream in = TheApexMod.class.getResourceAsStream("/IDCheckStringsDONT-EDIT-AT-ALL.json"); // DON'T EDIT THISSSSS
         IDCheckDontTouchPls EXCEPTION_STRINGS = coolG.fromJson(new InputStreamReader(in, StandardCharsets.UTF_8), IDCheckDontTouchPls.class); // NAH, NO EDIT
-        String packageName = DefaultMod.class.getPackage().getName(); // STILL NO EDIT ZONE
+        String packageName = TheApexMod.class.getPackage().getName(); // STILL NO EDIT ZONE
         FileHandle resourcePathExists = Gdx.files.internal(getModID() + "Resources"); // PLEASE DON'T EDIT THINGS HERE, THANKS
         if (!modID.equals(EXCEPTION_STRINGS.DEVID)) { // LEAVE THIS EDIT-LESS
             if (!packageName.equals(getModID())) { // NOT HERE ETHER
@@ -277,7 +273,7 @@ public class DefaultMod implements
     @SuppressWarnings("unused")
     public static void initialize() {
         logger.info("========================= Initializing Default Mod. Hi. =========================");
-        DefaultMod defaultmod = new DefaultMod();
+        TheApexMod defaultmod = new TheApexMod();
         logger.info("========================= /Default Mod Initialized. Hello World./ =========================");
     }
     
@@ -426,9 +422,14 @@ public class DefaultMod implements
         BaseMod.addCard(new BlindingArrow());
         BaseMod.addCard(new FireworkArrow());
         BaseMod.addCard(new TaintedArrow());
-        BaseMod.addCard(new Strike());
+        BaseMod.addCard(new Strike_A());
         BaseMod.addCard(new Pounce());
         BaseMod.addCard(new DualSlash());
+        BaseMod.addCard(new QuickStab());
+        BaseMod.addCard(new PreciseStab());
+        BaseMod.addCard(new HeavySlash());
+        BaseMod.addCard(new BeastFang());
+        BaseMod.addCard(new ForThePride());
 
 
         logger.info("Making sure the cards are unlocked.");
@@ -465,9 +466,16 @@ public class DefaultMod implements
         UnlockTracker.unlockCard(BlindingArrow.ID);
         UnlockTracker.unlockCard(FireworkArrow.ID);
         UnlockTracker.unlockCard(TaintedArrow.ID);
-        UnlockTracker.unlockCard(Strike.ID);
+        UnlockTracker.unlockCard(Strike_A.ID);
         UnlockTracker.unlockCard(Pounce.ID);
         UnlockTracker.unlockCard(DualSlash.ID);
+
+        // August 30th
+        UnlockTracker.unlockCard(QuickStab.ID);
+        UnlockTracker.unlockCard(PreciseStab.ID);
+        UnlockTracker.unlockCard(HeavySlash.ID);
+        UnlockTracker.unlockCard(BeastFang.ID);
+        UnlockTracker.unlockCard(ForThePride.ID);
 
 
 

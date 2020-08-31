@@ -8,11 +8,10 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.actions.common.ExhaustAction;
-import theApex.DefaultMod;
+import theApex.TheApexMod;
 import theApex.characters.TheApex;
 
-import static theApex.DefaultMod.makeCardPath;
+import static theApex.TheApexMod.makeCardPath;
 
 public class HeavyArrow extends AbstractDynamicCard {
 
@@ -36,7 +35,7 @@ public class HeavyArrow extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(HeavyArrow.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String ID = TheApexMod.makeID(HeavyArrow.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("SplinterArrow.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
@@ -69,7 +68,7 @@ public class HeavyArrow extends AbstractDynamicCard {
 
         magicNumber = baseMagicNumber = WEAK;
         this.exhaust = true;
-        tags.add(DefaultMod.CustomTags.ARROW);
+        tags.add(TheApexMod.CustomTags.ARROW);
     }
 
 

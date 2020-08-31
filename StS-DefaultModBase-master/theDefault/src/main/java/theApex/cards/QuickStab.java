@@ -1,19 +1,17 @@
 package theApex.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.actions.common.ExhaustAction;
-import theApex.DefaultMod;
+import theApex.TheApexMod;
 import theApex.characters.TheApex;
 
-import static theApex.DefaultMod.makeCardPath;
+import static theApex.TheApexMod.makeCardPath;
 
-public class Strike extends AbstractDynamicCard {
+public class QuickStab extends AbstractDynamicCard {
 
     /*
      * "Hey, I wanna make a bunch of cards now." - You, probably.
@@ -35,7 +33,7 @@ public class Strike extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(Strike.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String ID = TheApexMod.makeID(QuickStab.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("SplinterArrow.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
@@ -53,17 +51,25 @@ public class Strike extends AbstractDynamicCard {
     private static final int COST = 1;  // COST = 2
     private static final int UPGRADED_COST = 1; // UPGRADED_COST = 2
 
-    private static final int DAMAGE = 6;    // DAMAGE = 16
+    private static final int DAMAGE = 4;    // DAMAGE = 16
     private static final int UPGRADE_PLUS_DMG = 3;  // UPGRADE_PLUS_DMG = 5
+
+    private static final int BLOCK = 4;
+    private static final int UPGRADE_PLUS_BLOCK = 3;
+
+    private static final int DRAW = 1;
+    private static final int DRAW_INC = 1;
+
 
     // /STAT DECLARATION/
 
 
-    public Strike() { // - This one and the one right under the imports are the most important ones, don't forget them
+    public QuickStab() { // - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        this.tags.add(CardTags.STRIKE);
-        this.tags.add(CardTags.STARTER_STRIKE);
+        baseBlock  = BLOCK;
+        baseMagicNumber = magicNumber = DRAW;
+
     }
 
 
@@ -71,8 +77,13 @@ public class Strike extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
+                new GainBlockAction(p, block));
+
+        AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
 
+        AbstractDungeon.actionManager.addToBottom(
+                new DrawCardAction(magicNumber));
     }
 
 
@@ -82,6 +93,8 @@ public class Strike extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeBlock(UPGRADE_PLUS_BLOCK);
+            //upgradeMagicNumber(DRAW_INC);
             initializeDescription();
         }
     }

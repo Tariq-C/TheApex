@@ -430,7 +430,8 @@ public class TheApexMod implements
         BaseMod.addCard(new HeavySlash());
         BaseMod.addCard(new BeastFang());
         BaseMod.addCard(new ForThePride());
-
+        BaseMod.addCard(new Track());
+        BaseMod.addCard(new Overexert());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -477,7 +478,9 @@ public class TheApexMod implements
         UnlockTracker.unlockCard(BeastFang.ID);
         UnlockTracker.unlockCard(ForThePride.ID);
 
-
+        // September 7th
+        UnlockTracker.unlockCard(Track.ID);
+        UnlockTracker.unlockCard(Overexert.ID);
 
 
         logger.info("Done adding cards!");

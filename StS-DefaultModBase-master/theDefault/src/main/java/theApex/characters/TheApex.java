@@ -184,6 +184,9 @@ public class TheApex extends CustomPlayer {
         retVal.add(PreciseStab.ID);
         retVal.add(ForThePride.ID);
 
+        retVal.add(Track.ID);
+        retVal.add(Overexert.ID);
+
         /*
         for(int i = 0; i < 5; i++) {
             retVal.add(Strike.ID);

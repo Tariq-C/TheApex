@@ -125,7 +125,188 @@
     "NAME": "For The Pride",
     "DESCRIPTION": "Add !M! Beast Fangs to your Hand.",
     "UPGRADE_DESCRIPTION": "Add !M! Upgraded Beast Fangs to your Hand."
+  },
+  "theApex:Track": {
+    "NAME": "Track",
+    "DESCRIPTION": "Draw !M! cards. NL Discard !theApex:SecondMagic! cards."
+  },
+  "theApex:Overexert": {
+    "NAME": "Overexert",
+    "DESCRIPTION": "Draw a card for every card played this turn, draw !M! next turn"
+  },
+  "theApex:Ambush": {
+    "NAME": "Ambush",
+    "DESCRIPTION": "Gain !M! Energy next turn. NL Exhaust"
+  },
+  "theApex:HuntTheHunter": {
+    "NAME": "Hunt The Hunter",
+    "DESCRIPTION": "Draw !M! cards. NL Gain !theApex:SecondMagic! Temporary Strength."
+  },
+  "theApex:FightAndFlight": {
+    "NAME": "Fight And Flight",
+    "DESCRIPTION": "Gain !M! Energy NL Start next turn with !theApex:SecondMagic! Energy."
+  },
+  "theApex:FlyHigh": {
+    "NAME": "Fly High",
+    "DESCRIPTION": "Generate 8X Block. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Generate 8X Block."
+  },
+  "theApex:Defend_A": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Generate !B! Block."
+  },
+  "theApex:NightStalker": {
+    "NAME": "Night Stalker",
+    "DESCRIPTION": "Generate !B! Block."
+  },
+  "theApex:ThickFur": {
+    "NAME": "Thick Fur",
+    "DESCRIPTION": "Generate !B! Block. NL Draw !M! Card.",
+    "UPGRADE_DESCRIPTION": "Generate !B! Block. NL Draw !M! Cards."
+  },
+  "theApex:Retreat": {
+    "NAME": "Retreat",
+    "DESCRIPTION": "Generate !B! Block. NL Retain !M! card."
+  },
+  "theApex:BaitTrap": {
+    "NAME": "Bait Trap",
+    "DESCRIPTION": "Give all enemies !M! Vulnerable next turn."
+  },
+  "theApex:NemianHide": {
+    "NAME": "Nemian Hide",
+    "DESCRIPTION": "Grant !M! Dexterity for !theApex:SecondMagic! turns. NL Exhaust."
+  },
+  "theApex:KingOfTheSkies": {
+    "NAME": "King of the Skies",
+    "DESCRIPTION": "All attacks cost -1 for this turn. NL Exhaust."
+  },
+  "theApex:PackHunter": {
+    "NAME": "Pack Hunter",
+    "DESCRIPTION": "Start each turn with a Beast Fang in your hand for !M! turns.",
+    "UPGRADE_DESCRIPTION": "Start each turn with an Upgraded Beast Fang in your hand for !M! turns."
+  },
+  "theApex:ThornySpines": {
+    "NAME": "Thorny Spines",
+    "DESCRIPTION": "Generate !M! Thorns for !theApex:SecondMagic! turns. NL Exhaust."
+  },
+  "theApex:StoneScales": {
+    "NAME": "Stone Scales",
+    "DESCRIPTION": "Block doesn't Degenerate for !M! turns. NL Exhaust."
+  },
+  "theApex:Camouflage": {
+    "NAME": "Camouflage",
+    "DESCRIPTION": "Gain Intangible until an attack is played."
+  },
+  "theApex:EagleEye": {
+    "NAME": "Eagle Eye",
+    "DESCRIPTION": "All Arrow Attacks gain !M! Damage for !theApex:SecondMagic! turns. NL Exhaust."
+  },
+  "theApex:ArrowRecovery": {
+    "NAME": "Arrow Recovery",
+    "DESCRIPTION": "Return an exhausted Arrow Card to your hand. NL Exhaust."
+  },
+  "theApex:ScrapBunny": {
+    "NAME": "Scrap Bunny",
+    "DESCRIPTION": "Return !M! random Exhausted Cards to your hand. NL Exhaust."
+  },
+  "theApex:ScrapChinchilla": {
+    "NAME": "Scrap Chinchilla",
+    "DESCRIPTION": "Return a random exhausted card to the top of your draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Return an random exhausted card to the top of your draw pile."
+  },
+  "theApex:ScrapFalcon": {
+    "NAME": "Scrap Falcon",
+    "DESCRIPTION": "Play !M! exhausted cards. NL Exhaust"
+  },
+  "theApex:Eclipse": {
+    "NAME": "Eclipse",
+    "DESCRIPTION": "Returns all exhausted cards into your draw pile. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Return all exhausted cards into your draw pile."
+  },
+  "theApex:SoundTrap": {
+    "NAME": "Sound Trap",
+    "DESCRIPTION": "The next time the enemy intends to attack, gain !M! Temporary Dexterity."
+  },
+  "theApex:KnifeTrap": {
+    "NAME": "Knife Trap",
+    "DESCRIPTION": "The next time the enemy intends to attack, deal !D! Damage and inflict !M! Bleed."
+  },
+  "theApex:GraveTrap": {
+    "NAME": "Grave Trap",
+    "DESCRIPTION": "The next time the enemy intends to attack, play three random exhausted cards. NL Exhaust"
+  },
+  "theApex:StickyTrap": {
+    "NAME": "Sticky Trap",
+    "DESCRIPTION": "The next time the enemy intends to attack, inflict !M! Weak.",
+    "UPGRADE_DESCRIPTION": "The next time the enemy intends to attack, inflict !M! Weak and !theApex:SecondMagic! Vulnerable."
+  },
+  "theApex:Patience": {
+    "NAME": "Patience",
+    "DESCRIPTION": "Draw !M! Cards. NL Exhaust"
+  },
+  "theApex:FelineBalance": {
+    "NAME": "Feline Balance",
+    "DESCRIPTION": "Gain !B! Block at the beginning of your turn for !M! turns."
+  },
+  "theApex:FullMoon": {
+    "NAME": "Full Moon",
+    "DESCRIPTION": "Double the potency of Forms for !M! turns. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Triple the potency of Forms for !M! turns. NL Exhaust"
+  },
+  "theApex:ScrapTiger": {
+    "NAME": "Scrap Tiger",
+    "DESCRIPTION": "Return !M! cards from your Exhaust pile into your hand. They cost !theApex:SecondMagic! this turn. NL Exhaust"
+  },
+  "theApex:Abandon": {
+    "NAME": "Abandon",
+    "DESCRIPTION": "Exhaust your discard pile. NL Exhaust."
+  },
+  "theApex:BecomeTheApex": {
+    "NAME": "Become the Apex",
+    "DESCRIPTION": "Gain !M! Strength and Dexterity. NL -2 Draw for !theApex:SecondMagic! turns."
+  },
+  "theApex:BlessingOfArtemis": {
+    "NAME": "Blessing of Artemis",
+    "DESCRIPTION": "Forms last !M! turns longer."
+  },
+  "theApex:BlessingOfApollo": {
+    "NAME": "Blessing of Apollo",
+    "DESCRIPTION": "The first Arrow Card shot each turn is played !M! times."
+  },
+  "theApex:BlessingOfNemesis": {
+    "NAME": "Blessing of Nemesis",
+    "DESCRIPTION": "Each time you take damage, temporarily lower the strength of all enemies by !M!."
+  },
+  "theApex:AfterTheHunt": {
+    "NAME": "After The Hunt",
+    "DESCRIPTION": "Heal equal to the number of Arrow cards in your exhaust pile."
+  },
+  "theApex:BlessingOfTheOcean": {
+    "NAME": "Blessing of the Ocean",
+    "DESCRIPTION": "Inflict !M! Bleed to the enemy for each unblocked attack landed."
+  },
+  "theApex:BlessingOfShekmet": {
+    "NAME": "Blessing of Shekmet",
+    "DESCRIPTION": "Gain !M! Strength at the beginning of every turn."
+  },
+  "theApex:BlessingOfAegis": {
+    "NAME": "Blessing of Aegis",
+    "DESCRIPTION": "Gain !M! Dexterity at the beginning of every turn."
+  },
+  "theApex:BlessingOfHephaestus": {
+    "NAME": "Blessing of Hephaestus",
+    "DESCRIPTION": "Upgrade the first card used each turn."
+  },
+  "theApex:BathingInBlood": {
+    "NAME": "Bathing in Blood",
+    "DESCRIPTION": "Whenever a card exhausts gain !M! Block"
+  },
+  "theApex:ScrapHound": {
+    "NAME": "Scrap Hound",
+    "DESCRIPTION": "At the beginning of your turn return an exhausted card to your draw pile."
+  },
+  "theApex:ScrapFox": {
+    "NAME": "Scrap Fox",
+    "DESCRIPTION": "At the end of your turn return an exhausted card to your discard pile."
   }
-
-
 }

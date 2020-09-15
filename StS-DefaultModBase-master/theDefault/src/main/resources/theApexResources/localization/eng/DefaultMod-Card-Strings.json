@@ -136,7 +136,8 @@
   },
   "theApex:Ambush": {
     "NAME": "Ambush",
-    "DESCRIPTION": "Gain !M! Energy next turn. NL Exhaust"
+    "DESCRIPTION": "Gain !M! Energy next turn. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Gain !M! Energy next turn."
   },
   "theApex:HuntTheHunter": {
     "NAME": "Hunt The Hunter",
@@ -144,7 +145,8 @@
   },
   "theApex:FightAndFlight": {
     "NAME": "Fight And Flight",
-    "DESCRIPTION": "Gain !M! Energy NL Start next turn with !theApex:SecondMagic! Energy."
+    "DESCRIPTION": "Gain !M! Energy NL Start next turn with !theApex:SecondMagic! Energy. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Gain !M! Energy NL Start nex turn with !theApex:SecondMagic! Energy. NL Exhaust NL Retain"
   },
   "theApex:FlyHigh": {
     "NAME": "Fly High",

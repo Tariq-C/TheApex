@@ -9,6 +9,7 @@ import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.colorless.Apotheosis;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -178,21 +179,31 @@ public class TheApex extends CustomPlayer {
         retVal.add(DualSlash.ID);
         */
 
+        /*
         retVal.add(QuickStab.ID);
         retVal.add(BeastFang.ID);
         retVal.add(HeavySlash.ID);
         retVal.add(PreciseStab.ID);
         retVal.add(ForThePride.ID);
+        */
 
         retVal.add(Track.ID);
         retVal.add(Overexert.ID);
 
+        retVal.add(Ambush.ID);
+        retVal.add(HuntTheHunter.ID);
+        retVal.add(FightAndFlight.ID);
+        retVal.add(FlyHigh.ID);
+        retVal.add(NightStalker.ID);
+
         /*
         for(int i = 0; i < 5; i++) {
-            retVal.add(Strike.ID);
-            retVal.add(Defend.ID);
+            retVal.add(Strike_A.ID);
+            retVal.add(Defend_A.ID);
         }
         */
+
+        retVal.add(Apotheosis.ID);
         return retVal;
     }
 

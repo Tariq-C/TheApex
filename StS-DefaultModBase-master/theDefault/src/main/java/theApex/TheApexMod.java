@@ -3,12 +3,14 @@ package theApex;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
+import basemod.devcommands.fight.Fight;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -432,6 +434,12 @@ public class TheApexMod implements
         BaseMod.addCard(new ForThePride());
         BaseMod.addCard(new Track());
         BaseMod.addCard(new Overexert());
+        BaseMod.addCard(new Ambush());
+        BaseMod.addCard(new HuntTheHunter());
+        BaseMod.addCard(new FightAndFlight());
+        BaseMod.addCard(new FlyHigh());
+        BaseMod.addCard(new Defend_A());
+        BaseMod.addCard(new NightStalker());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -481,6 +489,15 @@ public class TheApexMod implements
         // September 7th
         UnlockTracker.unlockCard(Track.ID);
         UnlockTracker.unlockCard(Overexert.ID);
+
+        // September 15th
+        UnlockTracker.unlockCard(Ambush.ID);
+        UnlockTracker.unlockCard(HuntTheHunter.ID);
+        UnlockTracker.unlockCard(FightAndFlight.ID);
+        UnlockTracker.unlockCard(FlyHigh.ID);
+        UnlockTracker.unlockCard(Defend_A.ID);
+        UnlockTracker.unlockCard(NightStalker.ID);
+
 
 
         logger.info("Done adding cards!");

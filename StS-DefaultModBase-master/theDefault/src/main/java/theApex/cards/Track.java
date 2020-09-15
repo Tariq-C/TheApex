@@ -54,7 +54,7 @@ public class Track extends AbstractDynamicCard {
     private static final int DRAW = 3;
 
     private static final int DISCARD = 3;
-    private static final int UPG_DISCARD = 2;
+    private static final int UPG_DISCARD = -1;
 
     // /STAT DECLARATION/
 

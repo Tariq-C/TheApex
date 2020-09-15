@@ -48,7 +48,7 @@ public class Overexert extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
+    private static final CardTarget TARGET = CardTarget.SELF;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheApex.Enums.COLOR_GRAY;
 
@@ -76,18 +76,19 @@ public class Overexert extends AbstractDynamicCard {
 
         while(var2.hasNext()) {
             AbstractCard c = (AbstractCard)var2.next();
-            if (c.type == CardType.ATTACK) {
-                ++count;
-            }
+            ++count;
         }
 
         --count;
 
         this.addToTop(new DrawCardAction(count));
 
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p,p, new DrawReductionPower(p,magicNumber * -1))
-        );
+        for (int i = magicNumber; i==0; i++){
+            AbstractDungeon.actionManager.addToBottom(
+                    new ApplyPowerAction(p,p, new DrawReductionPower(p, -1))
+            );
+
+        }
     }
 
 

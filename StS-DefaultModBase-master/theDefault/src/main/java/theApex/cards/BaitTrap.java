@@ -1,17 +1,21 @@
 package theApex.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import theApex.TheApexMod;
 import theApex.characters.TheApex;
+import theApex.powers.BaitTrapPowerV;
+import theApex.powers.BaitTrapPowerW;
 
 import static theApex.TheApexMod.makeCardPath;
 
-public class Track extends AbstractDynamicCard {
+public class BaitTrap extends AbstractDynamicCard {
 
     /*
      * "Hey, I wanna make a bunch of cards now." - You, probably.
@@ -33,7 +37,7 @@ public class Track extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = TheApexMod.makeID(Track.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String ID = TheApexMod.makeID(BaitTrap.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("Skill.png");// "public static final String IMG = makeCardPath("SplinterArrow.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
@@ -44,37 +48,37 @@ public class Track extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.SELF;  //   since they don't change much.
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheApex.Enums.COLOR_GRAY;
 
-    private static final int COST = 0;  // COST = 2
-    private static final int UPGRADED_COST = 0; // UPGRADED_COST = 2
+    private static final int COST = 1;  // COST = 2
+    private static final int UPGRADED_COST = 1; // UPGRADED_COST = 2
 
-    private static final int DRAW = 3;
-
-    private static final int DISCARD = 3;
-    private static final int UPG_DISCARD = -1;
+    private static final int DEBUFF = 2;
 
     // /STAT DECLARATION/
 
 
-    public Track() { // - This one and the one right under the imports are the most important ones, don't forget them
+    public BaitTrap() { // - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = DRAW;
-        defaultBaseSecondMagicNumber = defaultSecondMagicNumber = DISCARD;
+        baseMagicNumber = magicNumber = DEBUFF;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (int i = 0; i < magicNumber; i++) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new DrawCardAction(1));
-        }
         AbstractDungeon.actionManager.addToBottom(
-                new DiscardAction(p, p, defaultBaseSecondMagicNumber, false));
+                new ApplyPowerAction(m, p, new BaitTrapPowerV(m, p, magicNumber))
+        );
+
+        if(upgraded == true){
+            AbstractDungeon.actionManager.addToBottom(
+                    new ApplyPowerAction(m, p, new BaitTrapPowerW(m, p, magicNumber))
+            );
+        }
+
     }
 
 
@@ -83,7 +87,6 @@ public class Track extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDefaultSecondMagicNumber(UPG_DISCARD);
             initializeDescription();
         }
     }

@@ -187,6 +187,7 @@ public class TheApex extends CustomPlayer {
         retVal.add(ForThePride.ID);
         */
 
+        /*
         retVal.add(Track.ID);
         retVal.add(Overexert.ID);
 
@@ -195,6 +196,11 @@ public class TheApex extends CustomPlayer {
         retVal.add(FightAndFlight.ID);
         retVal.add(FlyHigh.ID);
         retVal.add(NightStalker.ID);
+        */
+
+        retVal.add(ThickFur.ID);
+        retVal.add(Retreat.ID);
+        retVal.add(BaitTrap.ID);
 
         /*
         for(int i = 0; i < 5; i++) {

@@ -4,6 +4,7 @@ import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
 import basemod.devcommands.fight.Fight;
+import basemod.devcommands.unlock.Unlock;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -440,6 +441,9 @@ public class TheApexMod implements
         BaseMod.addCard(new FlyHigh());
         BaseMod.addCard(new Defend_A());
         BaseMod.addCard(new NightStalker());
+        BaseMod.addCard(new ThickFur());
+        BaseMod.addCard(new Retreat());
+        BaseMod.addCard(new BaitTrap());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -498,7 +502,10 @@ public class TheApexMod implements
         UnlockTracker.unlockCard(Defend_A.ID);
         UnlockTracker.unlockCard(NightStalker.ID);
 
-
+        // September 28th
+        UnlockTracker.unlockCard(ThickFur.ID);
+        UnlockTracker.unlockCard(Retreat.ID);
+        UnlockTracker.unlockCard(BaitTrap.ID);
 
         logger.info("Done adding cards!");
     }
